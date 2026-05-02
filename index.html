@@ -1,87 +1,718 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Política de Privacidad - Impostor</title>
-<style>
-body{
-font-family: Arial, sans-serif;
-max-width: 800px;
-margin: auto;
-padding: 40px;
-line-height: 1.6;
-}
-h1{
-margin-bottom:20px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impostor — Privacidad y Términos</title>
+  <meta name="description" content="Política de privacidad y términos de servicio del juego Impostor para Android." />
+  <meta name="theme-color" content="#0a0a16" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Impostor — Privacidad y Términos" />
+  <meta property="og:description" content="Política de privacidad y términos de servicio del juego Impostor." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a16;
+      --card-bg: rgba(22, 22, 42, 0.62);
+      --card-bg-strong: rgba(22, 22, 42, 0.92);
+      --primary: #e040fb;
+      --primary-soft: #c87aff;
+      --cyan: #00e5ff;
+      --cyan-soft: #6df3ff;
+      --text: #eef0fb;
+      --text-muted: #9ea4d6;
+      --text-dim: #6c728f;
+      --border: rgba(120, 134, 203, 0.16);
+      --border-strong: rgba(120, 134, 203, 0.28);
+      --border-neon: rgba(0, 229, 255, 0.4);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.02) inset;
+      --shadow-glow: 0 0 28px rgba(224, 64, 251, 0.18);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-feature-settings: "ss01", "cv01";
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* === Fondo nebular animado === */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: -10%;
+      background:
+        radial-gradient(ellipse 50% 35% at 18% 15%, rgba(224, 64, 251, 0.20) 0%, transparent 60%),
+        radial-gradient(ellipse 45% 35% at 82% 85%, rgba(0, 229, 255, 0.16) 0%, transparent 60%),
+        radial-gradient(ellipse 35% 25% at 60% 40%, rgba(156, 39, 176, 0.10) 0%, transparent 70%);
+      filter: blur(8px);
+      pointer-events: none;
+      z-index: 0;
+      animation: nebula 22s ease-in-out infinite alternate;
+    }
+    @keyframes nebula {
+      0%   { transform: translate3d(0, 0, 0) scale(1); }
+      50%  { transform: translate3d(2%, -1%, 0) scale(1.05); }
+      100% { transform: translate3d(-1%, 2%, 0) scale(1.03); }
+    }
+
+    /* Estrellitas estáticas */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.32) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 80% 10%, rgba(255,255,255,0.28) 0%, transparent 100%),
+        radial-gradient(1px 1px at 50% 70%, rgba(255,255,255,0.18) 0%, transparent 100%),
+        radial-gradient(1px 1px at 10% 90%, rgba(255,255,255,0.22) 0%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 90% 60%, rgba(255,255,255,0.18) 0%, transparent 100%),
+        radial-gradient(1px 1px at 35% 55%, rgba(255,255,255,0.14) 0%, transparent 100%),
+        radial-gradient(1px 1px at 70% 25%, rgba(255,255,255,0.20) 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 6s ease-in-out infinite alternate;
+    }
+    @keyframes twinkle {
+      0%   { opacity: 0.55; }
+      100% { opacity: 1; }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 22px 80px;
+    }
+
+    /* === Header con logo grande === */
+    header {
+      text-align: center;
+      margin-bottom: 36px;
+      animation: drop-in 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .logo-mark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      border-radius: 18px;
+      background: linear-gradient(140deg, rgba(224, 64, 251, 0.22), rgba(0, 229, 255, 0.16));
+      border: 1px solid rgba(224, 64, 251, 0.4);
+      box-shadow:
+        0 0 36px rgba(224, 64, 251, 0.28),
+        inset 0 0 22px rgba(224, 64, 251, 0.10);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.9rem;
+      color: #fff;
+      letter-spacing: -0.04em;
+      filter: drop-shadow(0 0 8px rgba(224,64,251,0.35));
+    }
+
+    .logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 5.5vw, 2.8rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, var(--primary) 45%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+      animation: hue-pulse 6s ease-in-out infinite;
+    }
+    @keyframes hue-pulse {
+      0%, 100% { filter: drop-shadow(0 0 14px rgba(224,64,251,0.50)); }
+      50%      { filter: drop-shadow(0 0 18px rgba(0,229,255,0.50)); }
+    }
+
+    .logo-sub {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    /* === Tabs === */
+    .tabs {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      margin: 28px 0 24px;
+      padding: 6px;
+      background: rgba(14, 14, 30, 0.72);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-card);
+      position: sticky;
+      top: 14px;
+      z-index: 5;
+      animation: drop-in 0.7s 0.05s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 11px 18px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 0.96rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s ease, background 0.25s ease, transform 0.15s ease;
+      position: relative;
+    }
+    .tab:hover:not(.active) { color: var(--text); }
+    .tab:active { transform: scale(0.98); }
+
+    .tab.active {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(224, 64, 251, 0.28), rgba(0, 229, 255, 0.20));
+      box-shadow:
+        0 0 22px rgba(224, 64, 251, 0.22),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    }
+
+    /* === Panel === */
+    .panel {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 30px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: var(--shadow-card);
+      animation: drop-in 0.6s 0.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Borde superior con gradiente */
+    .panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(224,64,251,0.6) 50%, transparent 100%);
+      opacity: 0.7;
+    }
+
+    .panel.hidden { display: none; }
+
+    .panel h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 1.9rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 6px;
+      background: linear-gradient(135deg, #fff 10%, var(--cyan-soft) 110%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .panel .meta {
+      color: var(--text-dim);
+      font-size: 0.84rem;
+      margin-bottom: 24px;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .panel .meta::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px rgba(0,229,255,0.7);
+      animation: pulse-dot 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.5; transform: scale(0.85); }
+      50%      { opacity: 1; transform: scale(1.1); }
+    }
+
+    .panel h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: -0.01em;
+    }
+    .panel h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--cyan) 100%);
+      box-shadow: 0 0 10px rgba(224,64,251,0.5);
+    }
+
+    .panel p, .panel li {
+      color: rgba(232, 234, 246, 0.92);
+      font-size: 0.96rem;
+    }
+
+    .panel p + p { margin-top: 10px; }
+
+    .panel ul {
+      margin: 10px 0 0 4px;
+      list-style: none;
+    }
+
+    .panel li {
+      margin-bottom: 10px;
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .panel li::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 0.7em;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 8px rgba(0,229,255,0.6);
+    }
+
+    .panel strong { color: #fff; font-weight: 700; }
+    .panel em { font-style: normal; color: var(--cyan-soft); font-weight: 600; }
+
+    .panel a {
+      color: var(--cyan-soft);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(0, 229, 255, 0.45);
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .panel a:hover, .panel a:focus-visible {
+      color: #fff;
+      border-bottom-color: #fff;
+      outline: none;
+    }
+
+    /* === Badges === */
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.16), rgba(0, 229, 255, 0.08));
+      border: 1px solid var(--border-neon);
+      color: var(--cyan-soft);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-left: 8px;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 12px rgba(0,229,255,0.10);
+      vertical-align: middle;
+    }
+    .badge.badge-purple {
+      background: linear-gradient(135deg, rgba(224, 64, 251, 0.18), rgba(224, 64, 251, 0.08));
+      border-color: rgba(224, 64, 251, 0.4);
+      color: var(--primary-soft);
+      box-shadow: 0 0 12px rgba(224,64,251,0.10);
+    }
+
+    /* === Cards de info === */
+    .info-card {
+      margin: 14px 0;
+      padding: 16px 18px;
+      background: linear-gradient(135deg, rgba(0, 229, 255, 0.07), rgba(224, 64, 251, 0.04));
+      border: 1px solid rgba(0, 229, 255, 0.18);
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+    .info-card strong { color: var(--cyan-soft); }
+
+    .contact-card {
+      margin-top: 30px;
+      padding: 22px 20px;
+      background: linear-gradient(135deg, rgba(224, 64, 251, 0.14), rgba(0, 229, 255, 0.08));
+      border: 1px solid rgba(224, 64, 251, 0.32);
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 0 28px rgba(224, 64, 251, 0.10);
+    }
+
+    .contact-card-title {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .contact-card a {
+      font-weight: 700;
+      font-size: 1.08rem;
+      color: #fff;
+      border-bottom: none;
+      display: inline-block;
+      padding: 4px 0;
+      background: linear-gradient(135deg, var(--cyan-soft), var(--primary-soft));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-card a:hover {
+      filter: brightness(1.2);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.82rem;
+      animation: drop-in 0.6s 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    }
+
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    footer a:hover { color: var(--cyan); }
+
+    .footer-divider {
+      max-width: 80px;
+      margin: 0 auto 16px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(120,134,203,0.4) 50%, transparent 100%);
+    }
+
+    /* Animación de entrada */
+    @keyframes drop-in {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Scroll bonito */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, var(--primary), var(--cyan));
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--cyan), var(--primary)); }
+
+    /* Selección de texto */
+    ::selection {
+      background: rgba(224, 64, 251, 0.35);
+      color: #fff;
+    }
+
+    /* Responsive */
+    @media (max-width: 560px) {
+      .wrap { padding: 32px 14px 60px; }
+      .panel { padding: 24px 18px; border-radius: 14px; }
+      .panel h2 { font-size: 1.04rem; margin-top: 22px; }
+      .logo-mark { width: 56px; height: 56px; font-size: 1.6rem; }
+      .tab { font-size: 0.9rem; padding: 10px 12px; }
+      .contact-card { padding: 18px 14px; }
+      .contact-card a { font-size: 1rem; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001s !important;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <header>
+      <div class="logo-mark" aria-hidden="true">i</div>
+      <div class="logo">Impostor</div>
+      <div class="logo-sub">Información legal y privacidad</div>
+    </header>
 
-<h1>Política de Privacidad</h1>
+    <nav class="tabs" role="tablist" aria-label="Secciones legales">
+      <button class="tab active" id="tab-privacy" role="tab" aria-selected="true" aria-controls="panel-privacy">Privacidad</button>
+      <button class="tab" id="tab-terms" role="tab" aria-selected="false" aria-controls="panel-terms">Términos</button>
+    </nav>
 
-<p><strong>Última actualización:</strong> 2026</p>
+    <section class="panel" id="panel-privacy" role="tabpanel" aria-labelledby="tab-privacy">
+      <h1>Política de privacidad</h1>
+      <p class="meta">Última actualización: mayo de 2026</p>
 
-<h2>1. Información general</h2>
-<p>
-La aplicación "Impostor" es un juego social diseñado para jugar con amigos.
-La privacidad de los usuarios es importante para nosotros.
-Esta política explica qué información se recopila y cómo se utiliza.
-</p>
+      <div class="info-card">
+        <strong>Resumen rápido:</strong> Impostor es un juego social pensado para usarse sin
+        cuenta. No pedimos tu nombre real, correo, ubicación ni nada que te identifique. Solo
+        usamos estadísticas anónimas de uso para mejorar la app y datos mínimos para procesar
+        las suscripciones a través de Google Play.
+      </div>
 
-<h2>2. Datos que recopilamos</h2>
-<p>
-La aplicación no recopila datos personales identificables como nombre, correo electrónico o ubicación.
-</p>
+      <h2>1. Quiénes somos</h2>
+      <p>
+        "Impostor" (en adelante, "la app") es un juego social tipo party game para Android.
+        El responsable del tratamiento de los datos es el desarrollador de la aplicación,
+        contactable en <a href="mailto:impostor.click@gmail.com">impostor.click@gmail.com</a>.
+      </p>
+      <p>
+        Esta política explica qué información trata la app, con qué proveedores se comparte y
+        qué derechos tienes como usuario. Cumplimos con el Reglamento General de Protección de
+        Datos (RGPD) de la UE y la legislación española vigente.
+      </p>
 
-<h2>3. Almacenamiento local</h2>
-<p>
-Las listas de palabras y configuraciones creadas por los usuarios se almacenan únicamente en el dispositivo
-del usuario utilizando almacenamiento local del dispositivo.
-Estos datos no se envían a servidores externos.
-</p>
+      <h2>2. Datos que tratamos</h2>
+      <p>
+        La app está diseñada para usarse <strong>sin necesidad de crear una cuenta ni introducir
+        datos personales identificativos</strong>. Los nombres de jugadores que escribes para
+        una partida se usan únicamente en tu dispositivo y nunca se envían a nuestros servidores.
+      </p>
+      <p>Sin embargo, para que la app funcione, se tratan los siguientes datos:</p>
+      <ul>
+        <li>
+          <strong>Estadísticas anónimas de uso</strong> <span class="badge">Firebase Analytics</span><br />
+          Eventos del juego como inicio de partida, fin de partida, uso de pistas y abandono temprano.
+          Google asigna un identificador anónimo de instalación (App Instance ID) que no permite
+          identificarte personalmente. Sirven para mejorar la app y detectar fallos.
+        </li>
+        <li>
+          <strong>Información de compra</strong> <span class="badge badge-purple">Google Play Billing</span><br />
+          Cuando compras la suscripción Premium, Google Play procesa el pago. Nosotros recibimos
+          únicamente la confirmación de que la compra es válida; no almacenamos datos de tarjeta
+          ni dirección.
+        </li>
+        <li>
+          <strong>Palabras personalizadas para pistas con IA</strong> <span class="badge">Backend</span><br />
+          Si usas la función "Generar pistas con IA", las palabras que escribes se envían a nuestro
+          servidor y a un proveedor de IA solo para devolverte la pista. No se almacenan ni se
+          asocian a tu identidad.
+        </li>
+        <li>
+          <strong>Datos almacenados en tu dispositivo</strong><br />
+          Tus listas de palabras guardadas y la configuración de jugadores se guardan únicamente
+          en el almacenamiento local del dispositivo (localStorage). Si desinstalas la app, se borran.
+        </li>
+      </ul>
 
-<h2>4. Servicios de terceros</h2>
-<p>
-La aplicación puede utilizar servicios de terceros para proporcionar funcionalidades específicas, como:
-</p>
+      <h2>3. Servicios de terceros</h2>
+      <p>La app utiliza estos proveedores. Te recomendamos leer también sus políticas:</p>
+      <ul>
+        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Play Services y Google Play Billing</a></li>
+        <li><a href="https://firebase.google.com/policies/analytics" target="_blank" rel="noopener">Firebase Analytics (Google)</a></li>
+      </ul>
 
-<ul>
-<li>Google Play Services para distribución de la aplicación.</li>
-<li>Google Play Billing para procesar pagos dentro de la aplicación.</li>
-</ul>
+      <h2>4. Base legal y finalidad</h2>
+      <ul>
+        <li><strong>Estadísticas anónimas:</strong> interés legítimo para mejorar la app y prevenir errores.</li>
+        <li><strong>Compras:</strong> ejecución del contrato de suscripción.</li>
+        <li><strong>Pistas con IA:</strong> ejecución de un servicio que tú solicitas activamente.</li>
+      </ul>
 
-<p>
-Estos servicios pueden recopilar información de acuerdo con sus propias políticas de privacidad.
-</p>
+      <h2>5. Conservación de los datos</h2>
+      <p>
+        No conservamos datos personales identificativos. Las estadísticas anónimas de Firebase
+        Analytics se conservan según los plazos por defecto de Google (configurados a 14 meses).
+        Las palabras enviadas para generar pistas no se almacenan tras procesar la respuesta.
+      </p>
 
-<h2>5. Pagos dentro de la aplicación</h2>
-<p>
-Las compras dentro de la aplicación se procesan a través de Google Play.
-La aplicación no almacena información de pago ni tarjetas de crédito.
-</p>
+      <h2>6. Tus derechos</h2>
+      <p>De acuerdo con el RGPD, tienes derecho a:</p>
+      <ul>
+        <li>Acceder, rectificar o suprimir los datos asociados a tu instalación.</li>
+        <li>Oponerte al tratamiento estadístico (puedes desinstalar la app o restablecer el ID de publicidad de Android desde los ajustes del dispositivo).</li>
+        <li>Solicitar la portabilidad de tus datos.</li>
+        <li>Presentar una reclamación ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</li>
+      </ul>
+      <p>
+        Para ejercer cualquiera de estos derechos o solicitar la eliminación de los datos
+        asociados a tu instalación, escríbenos a
+        <a href="mailto:impostor.click@gmail.com?subject=Solicitud%20de%20eliminaci%C3%B3n%20de%20datos">impostor.click@gmail.com</a>
+        indicando que solicitas borrado de datos. Responderemos en un plazo máximo de 30 días.
+      </p>
 
-<h2>6. Seguridad</h2>
-<p>
-Nos esforzamos por proteger la información del usuario.
-Sin embargo, ningún método de transmisión o almacenamiento electrónico es completamente seguro.
-</p>
+      <h2>7. Menores de edad</h2>
+      <p>
+        La app está clasificada para mayores de 13 años (PEGI 12). No recopilamos a sabiendas
+        datos de menores de 13 años. Si descubres que un menor ha facilitado datos, contáctanos
+        y los eliminaremos.
+      </p>
 
-<h2>7. Cambios en esta política</h2>
-<p>
-Esta política de privacidad puede actualizarse ocasionalmente.
-Cualquier cambio se publicará en esta misma página.
-</p>
+      <h2>8. Seguridad</h2>
+      <p>
+        Toda la comunicación con nuestros servidores se realiza mediante HTTPS cifrado. Aun así,
+        ningún sistema es 100% seguro: te recomendamos no introducir información sensible en los
+        nombres de jugadores ni en las palabras personalizadas.
+      </p>
 
-<h2>8. Contacto</h2>
-<p>
-Si tienes preguntas sobre esta política de privacidad puedes contactar en:
-</p>
+      <h2>9. Cambios en esta política</h2>
+      <p>
+        Podemos actualizar esta política para reflejar cambios legales o de funcionalidad. La
+        versión vigente siempre estará disponible en esta misma URL con la fecha de última
+        actualización. Si los cambios son sustanciales, lo avisaremos dentro de la app.
+      </p>
 
-<p>
-impostor.click@gmail.com
-</p>
+      <h2>10. Contacto</h2>
+      <div class="contact-card">
+        <p class="contact-card-title">Para cualquier pregunta sobre privacidad o eliminación de datos:</p>
+        <a href="mailto:impostor.click@gmail.com">impostor.click@gmail.com</a>
+      </div>
+    </section>
 
+    <section class="panel hidden" id="panel-terms" role="tabpanel" aria-labelledby="tab-terms">
+      <h1>Términos de servicio</h1>
+      <p class="meta">Última actualización: mayo de 2026</p>
+
+      <div class="info-card">
+        <strong>Resumen rápido:</strong> Al usar Impostor aceptas estos términos. La suscripción
+        Premium se renueva automáticamente y puedes cancelarla en cualquier momento desde Google
+        Play. Las funciones gratuitas no requieren compra.
+      </div>
+
+      <h2>1. Aceptación</h2>
+      <p>
+        Al instalar y usar la app "Impostor", aceptas estos términos. Si no estás de acuerdo, no la
+        utilices y desinstálala. Estos términos pueden actualizarse y la versión vigente siempre
+        está disponible en esta URL.
+      </p>
+
+      <h2>2. Descripción del servicio</h2>
+      <p>
+        Impostor es un juego social local: configura jugadores en un mismo dispositivo, asigna
+        roles secretos, juega y vota. Hay funciones gratuitas y funciones Premium accesibles
+        mediante suscripción.
+      </p>
+
+      <h2>3. Suscripción Premium</h2>
+      <ul>
+        <li>
+          La suscripción Premium se vende a través de <strong>Google Play Billing</strong>. Los
+          precios y la moneda mostrados son los aplicables al país de tu cuenta de Google Play.
+        </li>
+        <li>
+          <strong>Renovación automática:</strong> la suscripción se renueva automáticamente al
+          final de cada periodo (mensual o anual) al precio vigente, salvo que la canceles al
+          menos 24 horas antes del próximo cobro.
+        </li>
+        <li>
+          <strong>Cómo cancelar:</strong> puedes cancelar en cualquier momento desde
+          <em>Google Play Store → Tu perfil → Pagos y suscripciones → Suscripciones</em>.
+          Conservarás Premium hasta el final del periodo ya pagado.
+        </li>
+        <li>
+          <strong>Reembolsos:</strong> los reembolsos los gestiona Google según su política
+          (<a href="https://support.google.com/googleplay/answer/2479637" target="_blank" rel="noopener">support.google.com</a>).
+        </li>
+        <li>
+          <strong>Prueba gratuita:</strong> si la oferta incluye prueba gratuita, al finalizarla se
+          cobrará automáticamente el precio del periodo elegido salvo que canceles antes.
+        </li>
+      </ul>
+
+      <h2>4. Uso correcto</h2>
+      <p>
+        El usuario es responsable del contenido que introduzca en la app (nombres de jugadores,
+        palabras personalizadas). Está prohibido introducir contenido ilegal, ofensivo, que viole
+        derechos de terceros o que pueda dañar a otros usuarios. El desarrollador se reserva el
+        derecho a denegar el servicio en casos de uso indebido.
+      </p>
+
+      <h2>5. Propiedad intelectual</h2>
+      <p>
+        Todos los elementos gráficos, código y contenido de la app son propiedad del desarrollador
+        o de sus licenciantes. Se permite el uso personal y no comercial dentro de la propia app.
+        No está permitido copiar, redistribuir, modificar ni hacer ingeniería inversa.
+      </p>
+
+      <h2>6. Limitación de responsabilidad</h2>
+      <p>
+        La app se proporciona "tal cual". El desarrollador no se hace responsable de la
+        indisponibilidad temporal del servicio, errores puntuales o pérdida de datos almacenados
+        localmente en el dispositivo. Recomendamos exportar tus listas si son importantes.
+      </p>
+
+      <h2>7. Pistas generadas con IA</h2>
+      <p>
+        La función de pistas con IA usa modelos automáticos. Los textos generados pueden ser
+        imprecisos o contener errores. No deben considerarse información verificada y son solo para
+        uso lúdico dentro de la partida.
+      </p>
+
+      <h2>8. Ley aplicable y jurisdicción</h2>
+      <p>
+        Estos términos se rigen por la legislación española. Para cualquier controversia, las
+        partes se someten a los juzgados y tribunales del domicilio del consumidor cuando éste
+        esté en España, o al fuero que la normativa aplicable determine.
+      </p>
+
+      <h2>9. Contacto</h2>
+      <div class="contact-card">
+        <p class="contact-card-title">Para cualquier pregunta sobre estos términos:</p>
+        <a href="mailto:impostor.click@gmail.com">impostor.click@gmail.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-divider"></div>
+      <p>© 2026 Impostor · <a href="mailto:impostor.click@gmail.com">impostor.click@gmail.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const tabs = {
+        privacy: { btn: document.getElementById('tab-privacy'), panel: document.getElementById('panel-privacy') },
+        terms:   { btn: document.getElementById('tab-terms'),   panel: document.getElementById('panel-terms')   },
+      };
+
+      function show(name) {
+        Object.entries(tabs).forEach(([k, t]) => {
+          const active = k === name;
+          t.btn.classList.toggle('active', active);
+          t.btn.setAttribute('aria-selected', active ? 'true' : 'false');
+          t.panel.classList.toggle('hidden', !active);
+        });
+        try { history.replaceState(null, '', '#' + name); } catch (_) { /* ignore */ }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      tabs.privacy.btn.addEventListener('click', () => show('privacy'));
+      tabs.terms.btn.addEventListener('click', () => show('terms'));
+
+      const initial = (location.hash || '').replace('#', '');
+      if (initial === 'terms') show('terms');
+    })();
+  </script>
 </body>
 </html>
